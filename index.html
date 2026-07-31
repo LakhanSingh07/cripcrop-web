@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CripCrop - Smart Crop, Rotate & Batch Photo Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #8B5CF6;
+            --indigo: #4F46E5;
+            --dark: #0F172A;
+            --slate: #1E293B;
+            --text-light: #F8FAFC;
+            --text-gray: #94A3B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 8%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--purple), var(--indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: var(--text-gray);
+            text-decoration: none;
+            margin-left: 24px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--purple);
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 80px 8% 100px 8%;
+            background: radial-gradient(circle at top, rgba(139, 92, 246, 0.15) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            max-width: 800px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 32px;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--purple), var(--indigo));
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(139, 92, 246, 0.6);
+        }
+
+        .features {
+            padding: 80px 8%;
+            background-color: var(--slate);
+        }
+
+        .features h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background-color: rgba(15, 23, 42, 0.5);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--purple);
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .legal-sections {
+            padding: 80px 8%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .legal-card {
+            background-color: var(--slate);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .legal-card h2 {
+            margin-bottom: 24px;
+            font-size: 24px;
+            border-bottom: 2px solid var(--purple);
+            padding-bottom: 10px;
+        }
+
+        .legal-card h3 {
+            margin: 20px 0 10px 0;
+            font-size: 18px;
+        }
+
+        .legal-card p, .legal-card ul {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .legal-card ul {
+            margin-left: 20px;
+        }
+
+        footer {
+            background-color: var(--dark);
+            padding: 40px 8%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CripCrop</div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#refunds">Refunds</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Beautiful Photo Editing & Dynamic Grids</h1>
+        <p>The ultimate crop, rotate, passport mockup, and printing assistant. Free, simple, and ultra-high-definition.</p>
+        <a href="#" class="btn-download">Download APK</a>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Key Capabilities</h2>
+        <div class="features-grid">
+            <div class="card">
+                <h3>Batch Cropping</h3>
+                <p>Edit, rotate, flip, straighten, and filter hundreds of images at the exact same time without individual effort.</p>
+            </div>
+            <div class="card">
+                <h3>Custom Shape Masks</h3>
+                <p>Cut photos into circles, ovals, hearts, stars, triangles, hexagons, and custom templates instantly.</p>
+            </div>
+            <div class="card">
+                <h3>Smart ID Passport photo</h3>
+                <p>Generate standard official passport/visa photo grids with automatically generated solid color backgrounds.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="legal-sections">
+        <!-- Contact Section -->
+        <div id="contact" class="legal-card">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feedback, or refund requests, feel free to reach out to us:</p>
+            <ul>
+                <li><strong>Email:</strong> support@cripcrop.app</li>
+                <li><strong>Developer Address:</strong> CripCrop Labs, Lakhan Singh Road, India</li>
+                <li><strong>Operational Hours:</strong> Monday to Friday, 9:00 AM - 6:00 PM IST</li>
+            </ul>
+        </div>
+
+        <!-- Terms and Conditions Section -->
+        <div id="terms" class="legal-card">
+            <h2>Terms and Conditions</h2>
+            <p>Welcome to CripCrop. By downloading or using our mobile application, you agree to comply with and be bound by the following terms:</p>
+            
+            <h3>1. Use License</h3>
+            <p>We grant you a personal, non-transferable, non-exclusive license to use the CripCrop app on mobile devices you own or control.</p>
+            
+            <h3>2. User Data</h3>
+            <p>CripCrop processes all image edits locally inside your device. We do not store or transmit your original photos to any remote servers.</p>
+
+            <h3>3. Payments & Subscriptions</h3>
+            <p>Payment processes are handled securely via Razorpay. Subscriptions are billed on a recurring monthly or yearly basis until cancelled by the user.</p>
+        </div>
+
+        <!-- Privacy Policy Section -->
+        <div id="privacy" class="legal-card">
+            <h2>Privacy Policy</h2>
+            <p>At CripCrop, we value your privacy. This policy outlines how we handle user information:</p>
+
+            <h3>1. Local Editing Privacy</h3>
+            <p>CripCrop operates offline for all image manipulation and cropping operations. Your source images and editing cache are stored strictly on your device.</p>
+
+            <h3>2. Information We Collect</h3>
+            <p>We collect minimal telemetry data (crash reports and analytics) to improve stability. Billing details during in-app transactions are transmitted directly to Razorpay gateway.</p>
+        </div>
+
+        <!-- Refund Policy Section -->
+        <div id="refunds" class="legal-card">
+            <h2>Refund & Cancellation Policy</h2>
+            <p>We want you to be fully satisfied with CripCrop Pro. Our policy regarding purchases is as follows:</p>
+
+            <h3>1. Cancellations</h3>
+            <p>You can cancel your subscription at any time. Upon cancellation, your Pro entitlement benefits will remain active until the end of your current billing period.</p>
+
+            <h3>2. Refund Requests</h3>
+            <p>If you wish to request a refund, please contact us at <strong>support@cripcrop.app</strong> within 7 days of purchase. We process refunds for billing errors, duplicate charges, or performance issues immediately upon signature validation.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CripCrop. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
