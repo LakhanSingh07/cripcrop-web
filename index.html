@@ -211,49 +211,82 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
         }
 
         .feature-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 40px 32px;
             border-radius: 24px;
-            transition: transform 0.3s, border-color 0.3s;
-            position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.4s ease, 
+                        box-shadow 0.4s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(139, 92, 246, 0.35);
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.45);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1);
+        }
+
+        .feature-image-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.6);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .feature-card:hover .feature-img {
+            transform: scale(1.05);
+        }
+
+        .feature-info {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .icon-wrapper {
             background: rgba(139, 92, 246, 0.1);
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--purple-light);
-            margin-bottom: 24px;
-            font-size: 20px;
+            margin-bottom: 20px;
+            font-size: 18px;
             font-weight: bold;
         }
 
-        .feature-card h3 {
+        .feature-info h3 {
             font-size: 20px;
             margin-bottom: 12px;
             font-weight: 700;
         }
 
-        .feature-card p {
+        .feature-info p {
             color: var(--text-muted);
             font-size: 14px;
             margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .feature-list {
@@ -300,12 +333,24 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            transition: transform 0.3s;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.4s ease, 
+                        box-shadow 0.4s ease;
         }
 
         .pricing-card.popular {
             border-color: var(--purple);
             background: linear-gradient(to bottom, rgba(139, 92, 246, 0.05), rgba(9, 13, 26, 0.3));
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--purple-light);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+        }
+
+        .pricing-card.popular:hover {
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.25);
         }
 
         .pricing-card:hover {
@@ -562,41 +607,75 @@
     <section id="features" class="features">
         <div class="section-header">
             <h2>Dynamic Capabilities</h2>
-            <p>Processing tasks inside high-speed isolates to protect your battery and time.</p>
+            <p>On-device processing powered by Flutter isolates to ensure speed and 100% privacy.</p>
         </div>
         <div class="features-grid">
-            <!-- Feature 1 -->
+            <!-- Feature 1: Batch Crop -->
             <div class="feature-card">
-                <div class="icon-wrapper">1</div>
-                <h3>Intelligent Batch Processing</h3>
-                <p>Compile settings uniformly or overrides individually across hundreds of photos concurrently.</p>
-                <ul class="feature-list">
-                    <li>Isolate-based rendering pipeline</li>
-                    <li>Unified layout preview grids</li>
-                    <li>Smart face centering detectors</li>
-                </ul>
+                <div class="feature-image-wrapper">
+                    <img src="assets/batch_crop.png" alt="Batch Cropping" class="feature-img">
+                </div>
+                <div class="feature-info">
+                    <div class="icon-wrapper">✦</div>
+                    <h3>Intelligent Batch Processing</h3>
+                    <p>Crop, rotate, filter, and compress hundreds of images simultaneously. Save hours of manual work.</p>
+                    <ul class="feature-list">
+                        <li>Isolate-based processing (no lag)</li>
+                        <li>Live preview grid for all adjustments</li>
+                        <li>Auto-duplicate & quality scanning</li>
+                    </ul>
+                </div>
             </div>
-            <!-- Feature 2 -->
+
+            <!-- Feature 2: Crop & Rotate -->
             <div class="feature-card">
-                <div class="icon-wrapper">2</div>
-                <h3>Official Passport ID mockups</h3>
-                <p>Generate compliant document print-ready photo matrices with solid colored backgrounds.</p>
-                <ul class="feature-list">
-                    <li>Automated edge-matching boundaries</li>
-                    <li>Interactive 35x45mm / 2x2" presets</li>
-                    <li>White, blue, and gray canvas overrides</li>
-                </ul>
+                <div class="feature-image-wrapper">
+                    <img src="assets/crop_and_rotate.png" alt="Crop and Rotate" class="feature-img">
+                </div>
+                <div class="feature-info">
+                    <div class="icon-wrapper">✦</div>
+                    <h3>Precision Crop & Shape Masks</h3>
+                    <p>Free crop or lock aspect ratios. Crop into circles, stars, hearts, and custom vector templates.</p>
+                    <ul class="feature-list">
+                        <li>Preset ratios (1:1, 16:9, 4:3, etc.)</li>
+                        <li>Document perspective correction</li>
+                        <li>Dozens of premium shape masks</li>
+                    </ul>
+                </div>
             </div>
-            <!-- Feature 3 -->
+
+            <!-- Feature 3: Passport Photo -->
             <div class="feature-card">
-                <div class="icon-wrapper">3</div>
-                <h3>Print Studio Sheets</h3>
-                <p>Construct grids across standard A3, A4, or photo paper templates with customizable guidelines.</p>
-                <ul class="feature-list">
-                    <li>Grid-spacing gap sliders</li>
-                    <li>Cutting guide toggle overlays</li>
-                    <li>Aspect ratios constraint locking</li>
-                </ul>
+                <div class="feature-image-wrapper">
+                    <img src="assets/passport_photo.png" alt="Passport Photos" class="feature-img">
+                </div>
+                <div class="feature-info">
+                    <div class="icon-wrapper">✦</div>
+                    <h3>Smart Passport ID Creator</h3>
+                    <p>Create government-compliant passport, visa, and ID photos in seconds with custom background colors.</p>
+                    <ul class="feature-list">
+                        <li>35x45mm, 2x2" and custom formats</li>
+                        <li>Automated face alignment assistance</li>
+                        <li>Solid white, blue, or gray backgrounds</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 4: Print Layout -->
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="assets/print_layout.png" alt="Print Layouts" class="feature-img">
+                </div>
+                <div class="feature-info">
+                    <div class="icon-wrapper">✦</div>
+                    <h3>Print Sheet Layout Studio</h3>
+                    <p>Arrange your cropped photos onto standard page sizes (A4, A3, letter) for easy local printing.</p>
+                    <ul class="feature-list">
+                        <li>Custom grid spacing and margins</li>
+                        <li>Print directly from your device</li>
+                        <li>Adjust target file sizes (KB limits)</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
