@@ -55,12 +55,23 @@
             font-size: 26px;
             font-weight: 800;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo span {
             background: linear-gradient(to right, var(--purple-light), var(--indigo));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+            object-fit: cover;
         }
 
         nav {
@@ -481,12 +492,50 @@
         footer p {
             margin-bottom: 8px;
         }
+
+        /* Hero Showcase and Device Mockup */
+        .hero-showcase {
+            margin-top: 50px;
+            width: 100%;
+            max-width: 300px;
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .device-mockup {
+            width: 100%;
+            border: 10px solid #1E293B;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(139, 92, 246, 0.15);
+            background: #090D1A;
+            overflow: hidden;
+            aspect-ratio: 9 / 19.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease;
+        }
+
+        .device-mockup:hover {
+            transform: rotateY(-5deg) rotateX(5deg) translateY(-5px);
+        }
+
+        .device-mockup img.screenshot {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">✦ CripCrop</div>
+        <div class="logo">
+            <img src="assets/logo.png" alt="CripCrop Logo">
+            <span>CripCrop</span>
+        </div>
         <nav>
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
@@ -500,6 +549,12 @@
         <h1>Powering High-Definition Photo Mockups & <span>Batch Cropping</span></h1>
         <p>The premium utility editor that scales, rotates, transparently shapes, and organizes print layout grids locally on your Android device.</p>
         <a href="#" class="btn-primary">Download Production APK</a>
+        
+        <div class="hero-showcase">
+            <div class="device-mockup">
+                <img src="assets/screenshot.png" alt="CripCrop App Screenshot" class="screenshot">
+            </div>
+        </div>
     </section>
 
     <section id="features" class="features">
@@ -615,7 +670,7 @@
             <ul>
                 <li><strong>Merchant Legal Entity:</strong> CripCrop Labs</li>
                 <li><strong>Developer/Owner Name:</strong> Lakhan Singh</li>
-                <li><strong>Contact Email:</strong> support@cripcrop.app</li>
+                <li><strong>Contact Email:</strong> lsproducts.app@gmail.com</li>
                 <li><strong>Operations Office Address:</strong> CripCrop Labs, Lakhan Singh Road, India</li>
                 <li><strong>Operational Availability:</strong> Mon - Fri, 9:00 AM - 6:00 PM IST</li>
             </ul>
@@ -630,7 +685,7 @@
             <h3>2. Local Isolation Operations</h3>
             <p>All photo resizing, rotations, flips, ID mockup compilations, and PDF exports execute locally within your device. CripCrop does not host or duplicate user images to any server storage arrays.</p>
             <h3>3. Payment Verification</h3>
-            <p>Subscription and lifetime fees are cleared securely using Razorpay gateway integrations. We do not store or process raw bank credentials inside our app logic.</p>
+            <p>Subscription and lifetime fees are cleared securely using Google Play Billing platform systems. We do not store or process raw bank credentials inside our app logic.</p>
         </div>
 
         <!-- Privacy Content -->
@@ -640,7 +695,7 @@
             <h3>1. Photo Processing Boundaries</h3>
             <p>Your raw, source, and generated images remain on local hardware. We transmit zero photo buffers or graphics contents over network interfaces.</p>
             <h3>2. Information Transmission</h3>
-            <p>No account creation logins are collected to verify payments. In-app checkout parameters (contact/email) are transferred directly through secure TLS 1.3 tunnels to Razorpay systems.</p>
+            <p>No account creation logins are collected to verify payments. In-app checkout parameters and purchase tokens are transferred securely to our verification server and Google Play Billing systems.</p>
         </div>
 
         <!-- Refunds Content -->
@@ -649,14 +704,14 @@
             <p>We want you to be fully confident in CripCrop Pro:</p>
             <h3>1. Immediate Subscription Cancellations</h3>
             <p>You can terminate active monthly or yearly pricing plans at any time directly through store subscription dashboards. Entitlements persist until the current billing cycle expires.</p>
-            <h3>2. 7-Day Refund Guarantee</h3>
-            <p>If you encounter technical performance issues or billing duplicates, email our support helpdesk at <strong>support@cripcrop.app</strong> within 7 days of purchase to initiate standard Razorpay refund settlements.</p>
+            <h3>2. Refund Guarantee</h3>
+            <p>If you encounter technical performance issues or billing duplicates, email our support helpdesk at <strong>lsproducts.app@gmail.com</strong> to initiate standard Google Play refund settlements.</p>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 CripCrop Labs. All rights reserved.</p>
-        <p>Dynamic payments and signature validation verified securely by Razorpay.</p>
+        <p>Dynamic payments and subscription status verified securely by Google Play Billing.</p>
     </footer>
 
     <script>
